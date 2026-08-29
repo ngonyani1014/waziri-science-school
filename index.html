@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waziri Science School</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Ukurasa wa Login na Usajili (ESS Style) -->
+    <div id="auth-screen" class="auth-screen">
+        
+        <!-- Header ya Juu -->
+        <header class="auth-header">
+            <div class="auth-header-left">
+                <div class="brand-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="brand-text">
+                    <h2>United Republic of Tanzania</h2>
+                    <h3>Waziri Science School Portal</h3>
+                    <p>Physics & Mathematics Learning Management System</p>
+                </div>
+            </div>
+            <div class="auth-header-right">
+                <i class="fas fa-bars auth-menu-icon"></i>
+            </div>
+        </header>
+
+        <!-- Container ya Kadi ya Login -->
+        <div class="auth-body">
+            <div class="auth-card">
+                <h1 class="welcome-title" data-key="auth_welcome">Welcome</h1>
+                <p class="welcome-sub" data-key="auth_subtitle">Log into Waziri Science School Portal</p>
+                
+                <form id="main-login-form">
+                    <!-- Username Input -->
+                    <div class="ess-input-group">
+                        <input type="text" id="username" placeholder="Username (Check number / Student ID) *" required>
+                        <i class="fas fa-user-circle input-icon"></i>
+                    </div>
+
+                    <!-- Password Input -->
+                    <div class="ess-input-group">
+                        <input type="password" id="password" placeholder="Password *" required>
+                        <i class="fas fa-eye-slash input-icon toggle-password" id="togglePassword"></i>
+                    </div>
+
+                    <!-- Remember me & Reset Password -->
+                    <div class="form-options">
+                        <label class="remember-label">
+                            <input type="checkbox" id="rememberMe"> <span data-key="remember_me">Remember me</span>
+                        </label>
+                        <a href="#" class="reset-link" data-key="reset_pass">Reset Password?</a>
+                    </div>
+
+                    <!-- Login Button -->
+                    <button type="submit" class="ess-login-btn" data-key="login_submit">LOGIN</button>
+
+                    <!-- Error Message -->
+                    <p id="error-msg" class="error-msg"></p>
+
+                    <!-- Register Link -->
+                    <div class="register-text">
+                        <span data-key="not_registered">Not Registered?</span> 
+                        <a href="#" id="openRegisterLink" class="register-link" data-key="click_register">Click here to register</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer ya Login Screen -->
+        <footer class="auth-footer">
+            <p>For frequent asked question(FAQ), join our support team group by clicking <a href="#">HERE</a></p>
+            <p>For any Technical inquiry, Please contact ICT Support Team at:</p>
+            <p class="contact-info">support@waziriscience.co.tz or call +255 7XX XXX XXX</p>
+            <p class="copyright" data-key="footer_text">Copyright &copy;2026, All rights reserved. <strong>PO-PSMGG / WSS</strong>.</p>
+        </footer>
+
+        <!-- Modal ya Usajili (Registration Popup) -->
+        <div id="register-modal" class="register-modal-overlay">
+            <div class="auth-card">
+                <span class="close-register-btn" id="closeRegisterBtn">&times;</span>
+                <h1 class="welcome-title">Register</h1>
+                <p class="welcome-sub">Create your Waziri Science School Account</p>
+                
+                <form id="registration-form">
+                    <div class="ess-input-group">
+                        <input type="text" id="reg-fullname" placeholder="Full Name *" required>
+                        <i class="fas fa-user input-icon"></i>
+                    </div>
+
+                    <div class="ess-input-group">
+                        <input type="email" id="reg-email" placeholder="Email Address *" required>
+                        <i class="fas fa-envelope input-icon"></i>
+                    </div>
+
+                    <div class="ess-input-group">
+                        <input type="text" id="reg-phone" placeholder="Phone Number (e.g. 07XXXXXXXX) *" required>
+                        <i class="fas fa-phone input-icon"></i>
+                    </div>
+
+                    <div class="ess-input-group">
+                        <input type="password" id="reg-password" placeholder="Create Password *" required>
+                        <i class="fas fa-lock input-icon"></i>
+                    </div>
+
+                    <button type="submit" class="ess-login-btn">SIGN UP / REGISTER</button>
+
+                    <p id="reg-success-msg" class="success-msg"></p>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Website Content Kuu (Inafichwa mpaka mtumiaji aoingie) -->
+    <div id="main-app" class="hidden-app">
+        <!-- Header Section -->
+        <header class="app-header">
+            <div class="header-left">
+                <button id="dashboard-btn" class="menu-btn" aria-label="Dashboard Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="header-center">
+                <h1 data-key="school_title">Waziri Science School</h1>
+            </div>
+
+            <div class="header-right">
+                <!-- Logout Button -->
+                <button id="logout-btn" class="logout-btn" title="Toka nje"><i class="fas fa-sign-out-alt"></i> <span data-key="logout_btn">Toka</span></button>
+
+                <!-- Language Dropdown -->
+                <div class="dropdown">
+                    <button class="dropbtn" aria-label="Language Menu">
+                        <i class="fas fa-globe lang-icon"></i> <span data-key="lang_label">Lugha</span> <i class="fas fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#" id="lang-sw">Kiswahili</a>
+                        <a href="#" id="lang-en">English</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar / Dashboard Menu -->
+        <div id="sidebar" class="sidebar">
+            <a href="javascript:void(0)" class="close-btn" id="close-btn">&times;</a>
+            <h2 data-key="dashboard_title">Dashboard</h2>
+            
+            <!-- 1. Physics Notes -->
+            <details>
+                <summary data-key="phy_notes">Physics Notes</summary>
+                <ul>
+                    <li><a href="notes/physics_form1.pdf" target="_blank">Form 1</a></li>
+                    <li><a href="notes/physics_form2.pdf" target="_blank">Form 2</a></li>
+                    <li><a href="notes/physics_form3.pdf" target="_blank">Form 3</a></li>
+                    <li><a href="notes/physics_form4.pdf" target="_blank">Form 4</a></li>
+                    <li><a href="notes/physics_form5.pdf" target="_blank">Form 5</a></li>
+                    <li><a href="notes/physics_form6.pdf" target="_blank">Form 6</a></li>
+                </ul>
+            </details>
+
+            <!-- 2. Mathematics Notes -->
+            <details>
+                <summary data-key="math_notes">Mathematics Notes</summary>
+                <ul>
+                    <li><a href="notes/math_form1.pdf" target="_blank">Form 1</a></li>
+                    <li><a href="notes/math_form2.pdf" target="_blank">Form 2</a></li>
+                    <li><a href="notes/math_form3.pdf" target="_blank">Form 3</a></li>
+                    <li><a href="notes/math_form4.pdf" target="_blank">Form 4</a></li>
+                    <li><a href="notes/math_form5.pdf" target="_blank">Form 5</a></li>
+                    <li><a href="notes/math_form6.pdf" target="_blank">Form 6</a></li>
+                </ul>
+            </details>
+
+            <!-- 3. Physics Past Papers -->
+            <details>
+                <summary data-key="phy_papers">Physics Past Papers</summary>
+                <ul>
+                    <li><a href="papers/physics_pp_f1.pdf" target="_blank">Form 1</a></li>
+                    <li><a href="papers/physics_pp_f2.pdf" target="_blank">Form 2</a></li>
+                    <li><a href="papers/physics_pp_f3.pdf" target="_blank">Form 3</a></li>
+                    <li><a href="papers/physics_pp_f4.pdf" target="_blank">Form 4</a></li>
+                    <li><a href="papers/physics_pp_f5.pdf" target="_blank">Form 5</a></li>
+                    <li><a href="papers/physics_pp_f6.pdf" target="_blank">Form 6</a></li>
+                </ul>
+            </details>
+
+            <!-- 4. Mathematics Past Papers -->
+            <details>
+                <summary data-key="math_papers">Mathematics Past Papers</summary>
+                <ul>
+                    <li><a href="papers/math_pp_f1.pdf" target="_blank">Form 1</a></li>
+                    <li><a href="papers/math_pp_f2.pdf" target="_blank">Form 2</a></li>
+                    <li><a href="papers/math_pp_f3.pdf" target="_blank">Form 3</a></li>
+                    <li><a href="papers/math_pp_f4.pdf" target="_blank">Form 4</a></li>
+                    <li><a href="papers/math_pp_f5.pdf" target="_blank">Form 5</a></li>
+                    <li><a href="papers/math_pp_f6.pdf" target="_blank">Form 6</a></li>
+                </ul>
+            </details>
+
+            <!-- 5. Physics Videos (Zenye Form 1 hadi Form 6 zenye Topics au Video Link) -->
+            <details>
+                <summary data-key="phy_videos">Physics Videos</summary>
+                <details style="margin-left: 15px; margin-top: 5px;">
+                    <summary>Form 1</summary>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@teacherwaziri9348" target="_blank">1. Introduction to Physics</a></li>
+                        <li><a href="https://www.youtube.com/@teacherwaziri9348" target="_blank">2. Introduction to Laboratory Practice</a></li>
+                    </ul>
+                </details>
+                <details style="margin-left: 15px; margin-top: 5px;">
+                    <summary>Form 2</summary>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@teacherwaziri9348" target="_blank">1. Motion in a Straight Line</a></li>
+                        <li><a href="https://www.youtube.com/@teacherwaziri9348" target="_blank">2. Force</a></li>
+                    </ul>
+                </details>
+                <details style="margin-left: 15px; margin-top: 5px;">
+                    <summary>Form 3</summary>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@teacherwaziri9348" target="_blank">1. Newton's Laws of Motion</a></li>
+                    </ul>
+                </details>
+                <details style="margin-left: 15px; margin-top: 5px;">
+                    <summary>Form 4</summary>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@teacherwaziri9348" target="_blank">1. Waves</a></li>
+                    </ul>
+                </details>
+                <details style="margin-left: 15px; margin-top: 5px;">
+                    <summary>Form 5</summary>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@teacherwaziri9348" target="_blank">1. Mechanics</a></li>
+                    </ul>
+                </details>
+                <details style="margin-left: 15px; margin-top: 5px;">
+                    <summary>Form 6</summary>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@teacherwaziri9348" target="_blank">1. Electronics & Modern Physics</a></li>
+                    </ul>
+                </details>
+            </details>
+
+            <!-- 6. Mathematics Videos (Zenye Form 1 hadi Form 6 zenye Topics au Video Link) -->
+            <details>
+                <summary data-key="math_videos">Mathematics Videos</summary>
+                <details style="margin-left: 15px; margin-top: 5px;">
+                    <summary>Form 1</summary>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@teacherwaziri9348" target="_blank">1. Numbers</a></li>
+                        <li><a href="https://www.youtube.com/@teacherwaziri9348" target="_blank">2. Fractions</a></li>
+                    </ul>
+                </details>
+                <details style="margin-left: 15px; margin-top: 5px;">
+                    <summary>Form 2</summary>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@teacherwaziri9348" target="_blank">1. Indices and Logarithms</a></li>
+                    </ul>
+                </details>
+                <details style="margin-left: 15px; margin-top: 5px;">
+                    <summary>Form 3</summary>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@teacherwaziri9348" target="_blank">1. Quadratic Equations</a></li>
+                    </ul>
+                </details>
+                <details style="margin-left: 15px; margin-top: 5px;">
+                    <summary>Form 4</summary>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@teacherwaziri9348" target="_blank">1. Vectors and Trigonometry</a></li>
+                    </ul>
+                </details>
+                <details style="margin-left: 15px; margin-top: 5px;">
+                    <summary>Form 5</summary>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@teacherwaziri9348" target="_blank">1. Calculus (Differentiation)</a></li>
+                    </ul>
+                </details>
+                <details style="margin-left: 15px; margin-top: 5px;">
+                    <summary>Form 6</summary>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@teacherwaziri9348" target="_blank">1. Integration and Differential Equations</a></li>
+                    </ul>
+                </details>
+            </details>
+        </div>
+
+        <!-- Main Body Content -->
+        <main>
+            <section class="welcome-section">
+                <h2 data-key="welcome_title">Karibu sana Waziri Science School!</h2>
+                <p data-key="welcome_desc">Hapa utapata Notes, Past Papers, na Video za masomo ya Physics na Mathematics kuanzia Form 1 hadi Form 6 kwa urahisi kabisa.</p>
+            </section>
+            
+            <!-- Physics Lesson Notes Section -->
+            <section class="content-section">
+                <h2 class="section-title">Physics Lesson Notes</h2>
+                <div class="button-grid">
+                    <a href="notes/physics_form1.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 1</a>
+                    <a href="notes/physics_form2.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 2</a>
+                    <a href="notes/physics_form3.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 3</a>
+                    <a href="notes/physics_form4.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 4</a>
+                    <a href="notes/physics_form5.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 5</a>
+                    <a href="notes/physics_form6.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 6</a>
+                </div>
+            </section>
+
+            <!-- Mathematics Lesson Notes Section -->
+            <section class="content-section">
+                <h2 class="section-title">Mathematics Lesson Notes</h2>
+                <div class="button-grid">
+                    <a href="notes/math_form1.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 1</a>
+                    <a href="notes/math_form2.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 2</a>
+                    <a href="notes/math_form3.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 3</a>
+                    <a href="notes/math_form4.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 4</a>
+                    <a href="notes/math_form5.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 5</a>
+                    <a href="notes/math_form6.pdf" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 6</a>
+                </div>
+            </section>
+
+            <!-- Physics Past Papers Section -->
+            <section class="content-section">
+                <h2 class="section-title" data-key="sec_phy_papers">Physics Past Papers (PDF)</h2>
+                <div class="button-grid">
+                    <a href="papers/physics_pp_f1.pdf" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 1</a>
+                    <a href="papers/physics_pp_f2.pdf" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 2</a>
+                    <a href="papers/physics_pp_f3.pdf" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 3</a>
+                    <a href="papers/physics_pp_f4.pdf" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 4</a>
+                    <a href="papers/physics_pp_f5.pdf" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 5</a>
+                    <a href="papers/physics_pp_f6.pdf" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 6</a>
+                </div>
+            </section>
+
+            <!-- Mathematics Past Papers Section -->
+            <section class="content-section">
+                <h2 class="section-title" data-key="sec_math_papers">Mathematics Past Papers (PDF)</h2>
+                <div class="button-grid">
+                    <a href="papers/math_pp_f1.pdf" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 1</a>
+                    <a href="papers/math_pp_f2.pdf" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 2</a>
+                    <a href="papers/math_pp_f3.pdf" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 3</a>
+                    <a href="papers/math_pp_f4.pdf" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 4</a>
+                    <a href="papers/math_pp_f5.pdf" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 5</a>
+                    <a href="papers/math_pp_f6.pdf" class="btn-pdf"><i class="fas fa-file-pdf pdf-icon"></i> Form 6</a>
+                </div>
+            </section>
+
+            <!-- Physics Lesson Videos Section -->
+            <section class="content-section">
+                <h2 class="section-title">Physics Lesson Videos</h2>
+                <div class="button-grid">
+                    <button onclick="toggleSection('form1-physics-section')" class="btn-download">Form 1</button>
+                   <button id="form2-btn" onclick="toggleSection('form2-physics-section')" class="btn-download">Form 2</button>
+                    <button onclick="toggleSection('form3-physics-section')" class="btn-download">Form 3</button>
+                    <button onclick="toggleSection('form4-physics-section')" class="btn-download">Form 4</button>
+                    <button onclick="toggleSection('form5-physics-section')" class="btn-download">Form 5</button>
+                       <button onclick="toggleSection('form6-physics-section')" class="btn-download">Form 6</button></div>
+      <!-- Sehemu ya Topics na Subtopics za Form 1 (Inaanza ikiwa imefichwa) -->
+<div id="form1-physics-section" style="display: none; margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+    <h3 style="font-size: 15px; margin-bottom: 8px; color: #1e293b;">TOPIC-01: INTRODUCTION TO PHYSICS </h3>
+    <p style="margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #64748b;">Subtopics:</p>
+    <div class="button-grid">
+        <a href="https://youtu.be/HAPA_WEKA_LINK_1" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 1: Subtopic One</a>
+        <a href="https://youtu.be/HAPA_WEKA_LINK_2" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 2: Subtopic Two</a>
+    </div>
+</div>
+
+                <!-- Sehemu ya Mada za Form 2 Physics -->
+                <div id="form2-physics-section" style="display: none; margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+                    <h3 style="font-size: 15px; margin-bottom: 8px; color: #1e293b;">TOPIC-01: STATIC ELECTRICITY</h3>
+                    <p style="margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #64748b;">Subtopics:</p>
+                    <div class="button-grid">
+                        <a href="https://youtu.be/HAPA_WEKA_LINK_1" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 1: Concept of static electricity</a>
+                        <a href="https://youtu.be/HAPA_WEKA_LINK_2" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 2:Detection of charges</a>
+                        <a href="https://youtu.be/HAPA_WEKA_LINK_3" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 3:Conductors and Insulators</a>
+                        <a href="https://youtu.be/HAPA_WEKA_LINK_4" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 4:Capacitors</a>
+                        <a href="https://youtu.be/HAPA_WEKA_LINK_5" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 6:Charge distribution</a>
+                        <a href="https://youtu.be/HAPA_WEKA_LINK_6" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 6:Lightning conductors</a>
+                           <div id="form2-physics-section" style="margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+                    <h3 style="font-size: 15px; margin-bottom: 8px; color: #1e293b;">TOPIC-02: CURRENT ELECTRICITY</h3>
+                    <p style="margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #64748b;">Subtopics:</p>
+                    <div class="button-grid">
+                        <a href="https://youtu.be/HAPA_WEKA_LINK_1" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 1: Charge distribution on a Conductors </a>
+                        <a href="https://youtu.be/HAPA_WEKA_LINK_2" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 2:Simple Electric circuit</a>
+                    </div>
+                </div>
+            </section>
+            <!-- Sehemu ya Topics za Form 3 (Inaanza ikiwa imefichwa: display: none;) -->
+<div id="form3-physics-section" style="display: none; margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+    <h3 style="font-size: 15px; margin-bottom: 8px; color: #1e293b;">TOPIC-01: APPLICATION OF VECTORS </h3>
+    <p style="margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #64748b;">Subtopics:</p>
+    <div class="button-grid">
+        <a href="https://youtu.be/HAPA_WEKA_LINK_1" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 1: Subtopic One</a>
+        <a href="https://youtu.be/HAPA_WEKA_LINK_2" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 2: Subtopic Two</a>
+    </div>
+</div>
+<!-- Sehemu ya Topics na Subtopics za Form 4 (Inaanza ikiwa imefichwa) -->
+<div id="form4-physics-section" style="display: none; margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+    <h3 style="font-size: 15px; margin-bottom: 8px; color: #1e293b;">TOPIC-01: WAVES</h3>
+    <p style="margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #64748b;">Subtopics:</p>
+    <div class="button-grid">
+        <a href="https://youtu.be/HAPA_WEKA_LINK_1" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 1: Subtopic One</a>
+        <a href="https://youtu.be/HAPA_WEKA_LINK_2" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 2: Subtopic Two</a>
+    </div>
+</div>
+<!-- Sehemu ya Topics na Subtopics za Form 5 (Inaanza ikiwa imefichwa) -->
+<div id="form5-physics-section" style="display: none; margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+    <h3 style="font-size: 15px; margin-bottom: 8px; color: #1e293b;">TOPIC-01: MEASUREMENT </h3>
+    <p style="margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #64748b;">Subtopics:</p>
+    <div class="button-grid">
+        <a href="https://youtu.be/HAPA_WEKA_LINK_1" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 1: Subtopic One</a>
+        <a href="https://youtu.be/HAPA_WEKA_LINK_2" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 2: Subtopic Two</a>
+    </div>
+</div>
+<!-- Sehemu ya Topics na Subtopics za Form 6 (Inaanza ikiwa imefichwa) -->
+<div id="form6-physics-section" style="display: none; margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+    <h3 style="font-size: 15px; margin-bottom: 8px; color: #1e293b;">TOPIC-01: FLUID DYNAMICS </h3>
+    <p style="margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #64748b;">Subtopics:</p>
+    <div class="button-grid">
+        <a href="https://youtu.be/HAPA_WEKA_LINK_1" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 1: Subtopic One</a>
+        <a href="https://youtu.be/HAPA_WEKA_LINK_2" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 2: Subtopic Two</a>
+    </div>
+</div>
+  <!-- Mahematics Lesson Videos Section -->
+            <section class="content-section">
+                <h2 class="section-title">Mathematics Lesson Videos</h2>
+                <div class="button-grid">
+                    <button onclick="toggleSection('form1-math-section')" class="btn-download">Form 1</button>
+                    <button onclick="toggleSection('form2-math-section')" class="btn-download">Form 2</button>
+                    <button onclick="toggleSection('form3-math-section')" class="btn-download">Form 3</button>
+                    <button onclick="toggleSection('form4-math-section')" class="btn-download">Form 4</button>
+                    <button onclick="toggleSection('form5-math-section')" class="btn-download">Form 5</button>
+                    <button onclick="toggleSection('form6-math-section')" class="btn-download">Form 6</button>
+                </div>
+                
+<!-- === MATH CONTENT SECTIONS (Weka chini yake au mahali ulipopapanga) === -->
+
+<!-- Form 1 Math -->
+<div id="form1-math-section" style="display: none; margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+    <h3 style="font-size: 15px; margin-bottom: 8px; color: #1e293b;">TOPIC-01: THE CONCEPT OF MATHEMATICS </h3>
+    <p style="margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #64748b;">Subtopics:</p>
+    <div class="button-grid">
+        <a href="https://youtu.be/HAPA_WEKA_LINK_1" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 1: Subtopic One</a>
+        <a href="https://youtu.be/HAPA_WEKA_LINK_2" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 2: Subtopic Two</a>
+    </div>
+</div>
+
+<!-- Form 2 Math -->
+<div id="form2-math-section" style="display: none; margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+    <h3 style="font-size: 15px; margin-bottom: 8px; color: #1e293b;">TOPIC-01: CONGRUENCE </h3>
+    <p style="margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #64748b;">Subtopics:</p>
+    <div class="button-grid">
+        <a href="https://youtu.be/HAPA_WEKA_LINK_1" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 1: Subtopic One</a>
+        <a href="https://youtu.be/HAPA_WEKA_LINK_2" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 2: Subtopic Two</a>
+    </div>
+</div>
+
+<!-- Form 3 Math -->
+<div id="form3-math-section" style="display: none; margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+    <h3 style="font-size: 15px; margin-bottom: 8px; color: #1e293b;">TOPIC-01: CIRCLE</h3>
+    <p style="margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #64748b;">Subtopics:</p>
+    <div class="button-grid">
+        <a href="https://youtu.be/HAPA_WEKA_LINK_1" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 1: Subtopic One</a>
+        <a href="https://youtu.be/HAPA_WEKA_LINK_2" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 2: Subtopic Two</a>
+    </div>
+</div>
+
+<!-- Form 4 Math -->
+<div id="form4-math-section" style="display: none; margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+    <h3 style="font-size: 15px; margin-bottom: 8px; color: #1e293b;">TOPIC-01: LINEAR PROGRAMMING </h3>
+    <p style="margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #64748b;">Subtopics:</p>
+    <div class="button-grid">
+        <a href="https://youtu.be/HAPA_WEKA_LINK_1" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 1: Subtopic One</a>
+        <a href="https://youtu.be/HAPA_WEKA_LINK_2" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 2: Subtopic Two</a>
+    </div>
+</div>
+
+<!-- Form 5 Math -->
+<div id="form5-math-section" style="display: none; margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+    <h3 style="font-size: 15px; margin-bottom: 8px; color: #1e293b;">TOPIC-01: SETS</h3>
+    <p style="margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #64748b;">Subtopics:</p>
+    <div class="button-grid">
+        <a href="https://youtu.be/HAPA_WEKA_LINK_1" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 1: Subtopic One</a>
+        <a href="https://youtu.be/HAPA_WEKA_LINK_2" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 2: Subtopic Two</a>
+    </div>
+</div>
+
+<!-- Form 6 Math -->
+<div id="form6-math-section" style="display: none; margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+    <h3 style="font-size: 15px; margin-bottom: 8px; color: #1e293b;">TOPIC-01: HYPERBOLIC FUNCTIONS </h3>
+    <p style="margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #64748b;">Subtopics:</p>
+    <div class="button-grid">
+        <a href="https://youtu.be/HAPA_WEKA_LINK_1" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 1: Subtopic One</a>
+        <a href="https://youtu.be/HAPA_WEKA_LINK_2" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> 2: Subtopic Two</a>
+    </div>
+</div>
+            </section>
+
+            <!-- Sehemu ya Mawasiliano -->
+            <section class="contact-section">
+                <h2 class="section-title" data-key="contact_title">Mawasiliano</h2>
+                <div class="contact-links">
+                    <p><i class="fas fa-phone-alt" style="color: #007BFF;"></i> <span data-key="phone_text">Simu:</span> +255 7XX XXX XXX</p>
+                    <p><i class="fab fa-whatsapp" style="color: #25D366;"></i> <span data-key="whatsapp_text">WhatsApp:</span> +255 7XX XXX XXX</p>
+                    <p><i class="fas fa-envelope" style="color: #EA4335;"></i> <span data-key="email_text">Barua pepe:</span> support@waziriscience.co.tz</p>
+                    <p><i class="fas fa-globe" style="color: #007BFF;"></i> <span data-key="website_text">Tovuti:</span> www.waziriscience.co.tz</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer ya Hati Miliki (Inakaa nje ya main-app ili ionekane chini kabisa au ndani kulingana na muundo wako) -->
+    <footer style="text-align: center; padding: 20px; background-color: #1e293b; color: #ffffff; margin-top: 40px; font-size: 14px;">
+        <p data-key="footer_rights">&copy; 2026 Waziri Science School. Haki zote zimehifadhiwa.</p>
+        <p style="font-size: 12px; color: #94a3b8; margin-top: 5px;" data-key="footer_author">Imeandaliwa na Mwl. Waziri Rajabu Ngonyani</p>
+    </footer>
+<!-- Kiunganishi cha script.js -->
+    <script src="script.js"></script>
+</body>
+</html>        
+                       
+                    
