@@ -4,83 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Topic 01: Static Electricity - Physics Form Two</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f9;
-            margin: 0;
-            padding: 10px;
-            color: #000;
-        }
-
-        .notes-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .topic-header {
-            background-color: #4a5568;
-            color: #ffffff;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
-        .topic-header h2 {
-            margin: 0 0 5px 0;
-            font-size: 22px;
-        }
-
-        .topic-header h3 {
-            margin: 0;
-            color: #feb2b2;
-            font-size: 18px;
-        }
-
-        h4 {
-            color: #2d3748;
-            margin-top: 20px;
-            margin-bottom: 8px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 4px;
-        }
-
-        p, ul, ol {
-            line-height: 1.6;
-            font-size: 15px;
-        }
-
-        .law-quote {
-            font-style: italic;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-
-        .note-image {
-            max-width: 100%;
-            width: 450px;
-            height: auto;
-            display: block;
-            margin: 15px auto;
-            border: 1px solid #cbd5e0;
-            border-radius: 4px;
-        }
-
-        .footer-credit {
-            margin-top: 30px;
-            padding-top: 10px;
-            border-top: 1px solid #cbd5e0;
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            font-weight: bold;
-            color: #4a5568;
-        }
-    </style>
+    <link rel="stylesheet" href="notes-style.css">
 </head>
 <body>
 
@@ -120,7 +44,7 @@
 
             <h4>Charge acquired after rubbing</h4>
             <!-- Picha ya Jedwali -->
-            <img src="notes/1788093446383.png" alt="Charge acquired after rubbing table" class="note-image">
+            <img src="1788093446383.png" alt="Charge acquired after rubbing table" class="note-image">
 
             <h4>Fundamental law of electrostatics (static charges)</h4>
             <p>The law states that:</p>
