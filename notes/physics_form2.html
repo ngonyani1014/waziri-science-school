@@ -308,12 +308,13 @@
             <img src="capacitors-series.png" alt="Capacitors in series connection" class="note-image">
             <ul>
                 <li>From the figure above, $V_T = V_1 + V_2$</li>
-                <li>But: $Q = CV$, making $V$ the subject: $V = \frac{Q}{C} \implies V_T = \frac{Q_T}{C_T}$</li>
-                <li>Since charge stored is the same, i.e., $Q_T = Q_1 = Q_2 = Q$</li>
-                <li>This gives: 
+                <li>Since $Q = CV$, making $V$ the subject gives:
+                    $$V = \frac{Q}{C}$$
+                </li>
+                <li>Since the charge stored is the same ($Q_T = Q_1 = Q_2 = Q$), substituting into the voltage equation gives:
                     $$V_T = \frac{Q_T}{C_T} \implies \frac{Q}{C_T} = \frac{Q}{C_1} + \frac{Q}{C_2}$$
                 </li>
-                <li>Dividing through by $Q$ gives:
+                <li>Dividing through by $Q$ gives the total capacitance formula:
                     $$\frac{1}{C_T} = \frac{1}{C_1} + \frac{1}{C_2}$$
                 </li>
                 <li>If two capacitors are in series, then their total capacitance, $C_T$ is given by:
@@ -325,14 +326,16 @@
             <!-- Picha ya Capacitors in Parallel -->
             <img src="capacitors-parallel.png" alt="Capacitors in parallel connection" class="note-image">
             <ul>
-                <li>From the diagram above: $Q_T = Q_1 + Q_2$, but $Q = CV$</li>
-                <li>Then:
+                <li>From the diagram above, the total charge is the sum of individual charges:
+                    $$Q_T = Q_1 + Q_2$$
+                </li>
+                <li>Since $Q = CV$, substituting this into the equation gives:
                     $$Q_T = C_T V_T \implies C_T V_T = C_1 V_1 + C_2 V_2$$
                 </li>
-                <li>Since voltage across each capacitor is the same:
-                    $$C_T V_T = C_1 V_T + C_2 V_T \implies C_T V_T = V_T \left( C_1 + C_2 \right)$$
+                <li>Since the voltage across each capacitor is the same ($V_T = V_1 = V_2 = V$):
+                    $$C_T V = C_1 V + C_2 V \implies C_T V = V \left( C_1 + C_2 \right)$$
                 </li>
-                <li>Therefore:
+                <li>Therefore, dividing both sides by $V$ gives:
                     $$C_T = C_1 + C_2$$
                 </li>
             </ul>
@@ -378,4 +381,4 @@
     </div>
 
 </body>
-                                                                                                             </html>
+                </html>
