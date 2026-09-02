@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Topic 01: Static Electricity - Physics Form Two</title>
 
+    <!-- MathJax for professional website equation rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -71,14 +74,16 @@
             border-radius: 4px;
         }
 
-        /* MTINDO MPYA: Hakuna visanduku tena, Maandishi ya kawaida */
-        .normal-text-math {
-            font-family: "Courier New", Courier, monospace; /* Fonti ya kitalamu */
-            font-weight: bold;
-            font-size: 15px;
+        /* Visanduku vya fomula vilivyoboreshwa visijae kupita kiasi */
+        .formula-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4a5568;
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-size: 16px;
             color: #1a202c;
-            margin-left: 20px; /* Nafasi kidogo mwanzo */
-            line-height: 1.5;
+            overflow-x: auto;
+            text-align: center;
         }
 
         .footer-credit {
@@ -96,7 +101,6 @@
 <body>
 
     <div class="notes-container">
-        <!-- Kichwa Kikuu cha Topic -->
         <div class="topic-header">
             <h2>TOPIC-01; STATIC ELECTRICITY</h2>
             <h3>1.1; The concept of static Electricity</h3>
@@ -258,8 +262,8 @@
                 <li>The SI unit of Capacitance is Farad.</li>
                 <li>Farad is the capacitance of a capacitor in which one coulomb of charge causes a potential difference of one volt.</li>
                 <li>Capacitors are found in all electronic circuits, e.g. in radios, television, alarm systems, etc.</li>
-                <li>The potential difference, V across the two capacitor plates of the capacitor is directly proportional to the charge, Q accumulating on its plates that is Q &propto; V.</li>
-                <li>Removing the proportionality constant, Q = kV (where k = C = capacitance, hence Q = CV).</li>
+                <li>The potential difference, \(V\) across the two capacitor plates of the capacitor is directly proportional to the charge, \(Q\) accumulating on its plates that is \(Q \propto V\).</li>
+                <li>Removing the proportionality constant, \(Q = kV\) (where \(k = C = \text{capacitance}\), hence \(Q = CV\)).</li>
             </ul>
 
             <h4>Charging a Capacitor</h4>
@@ -299,33 +303,70 @@
             
             <h4>(a) Capacitors in Series Connection</h4>
             <img src="capacitors-series.png" alt="Capacitors in series connection" class="note-image">
-            <p>From the figure above, V<sub>T</sub> = V<sub>1</sub> + V<sub>2</sub>.</p>
-            <p>Since Q = CV, making V the subject gives:</p>
-            <!-- MAANDISHI YA KAWAIDA YALIYOPANGWA VIZURI -->
-            <p class="normal-text-math">V = Q / C</p>
-            <p>Since the charge stored is the same (Q<sub>T</sub> = Q<sub>1</sub> = Q<sub>2</sub> = Q), substituting into the voltage equation gives:</p>
-            <p class="normal-text-math">V<sub>T</sub> = Q<sub>T</sub> / C<sub>T</sub></p>
-            <p class="normal-text-math">=> Q / C<sub>T</sub> = (Q / C<sub>1</sub>) + (Q / C<sub>2</sub>)</p>
-            <p>Dividing through by Q gives the total capacitance formula:</p>
-            <p class="normal-text-math">1 / C<sub>T</sub> = (1 / C<sub>1</sub>) + (1 / C<sub>2</sub>)</p>
-            <p>If two capacitors are in series, then their total capacitance, C<sub>T</sub> is given by:</p>
-            <p class="normal-text-math">C<sub>T</sub> = (C<sub>1</sub> &times; C<sub>2</sub>) / (C<sub>1</sub> + C<sub>2</sub>)</p>
+            <p>From the figure above, \(V_T = V_1 + V_2\).</p>
+            <p>Since \(Q = CV\), making \(V\) the subject gives:</p>
+            <div class="formula-box">$$V = \frac{Q}{C}$$</div>
+            <p>Since the charge stored is the same (\(Q_T = Q_1 = Q_2 = Q\)), substituting into the voltage equation gives:</p>
+            <div class="formula-box">
+                $$V_T = \frac{Q_T}{C_T} \implies \frac{Q}{C_T} = \frac{Q}{C_1} + \frac{Q}{C_2}$$
+            </div>
+            <p>Dividing through by \(Q\) gives the total capacitance formula:</p>
+            <div class="formula-box">$$\frac{1}{C_T} = \frac{1}{C_1} + \frac{1}{C_2}$$</div>
+            <p>If two capacitors are in series, then their total capacitance, \(C_T\) is given by:</p>
+            <div class="formula-box">$$C_T = \frac{C_1 \times C_2}{C_1 + C_2}$$</div>
 
             <h4>(b) Capacitors in Parallel Connection</h4>
             <img src="capacitors-parallel.png" alt="Capacitors in parallel connection" class="note-image">
-            <p>From the diagram above, total charge is the sum of individual charges: Q<sub>T</sub> = Q<sub>1</sub> + Q<sub>2</sub>.</p>
-            <p>Since Q = CV, substituting this into the equation gives:</p>
-            <p class="normal-text-math">Q<sub>T</sub> = C<sub>T</sub>V<sub>T</sub></p>
-            <p class="normal-text-math">=> C<sub>T</sub>V<sub>T</sub> = C<sub>1</sub>V<sub>1</sub> + C<sub>2</sub>V<sub>2</sub></p>
-            <p>Since voltage across each capacitor is the same (V<sub>T</sub> = V<sub>1</sub> = V<sub>2</sub> = V):</p>
-            <p class="normal-text-math">C<sub>T</sub>V = C<sub>1</sub>V + C<sub>2</sub>V</p>
-            <p class="normal-text-math">=> C<sub>T</sub>V = V(C<sub>1</sub> + C<sub>2</sub>)</p>
-            <p>Therefore, dividing both sides by V gives:</p>
-            <p class="normal-text-math">C<sub>T</sub> = C<sub>1</sub> + C<sub>2</sub></p>
+            <p>From the diagram above, total charge is the sum of individual charges: \(Q_T = Q_1 + Q_2\).</p>
+            <p>Since \(Q = CV\), substituting this into the equation gives:</p>
+            <div class="formula-box">
+                $$Q_T = C_T V_T \implies C_T V_T = C_1 V_1 + C_2 V_2$$
+            </div>
+            <p>Since voltage across each capacitor is the same (\(V_T = V_1 = V_2 = V\)):</p>
+            <div class="formula-box">
+                $$C_T V = C_1 V + C_2 V \implies C_T V = V(C_1 + C_2)$$
+            </div>
+            <p>Therefore, dividing both sides by \(V\) gives:</p>
+            <div class="formula-box">$$C_T = C_1 + C_2$$</div>
 
             <h4>Individual Work – 1</h4>
             <ol>
-                <li>Two capacitors of 20 &mu;F and 25 &mu;F are connected in (i) series and (ii) parallel. What is the effective capacitance for (i) and (ii)? <br><strong>(ANS: (i) 11.11 &mu;F (ii) 45 &mu;F)</strong></li>
-                <li>Determine the effective capacitance obtained when two capacitors each of 10 &mu;F are connected first in parallel and then in series. <br><strong>(ANS: (i) 5 &mu;F (ii) 20 &mu;F)</strong></li>
-                <li>It is required to
-    
+                <li>Two capacitors of \(20\ \mu\text{F}\) and \(25\ \mu\text{F}\) are connected in (i) series and (ii) parallel. What is the effective capacitance for (i) and (ii)? <br><strong>(ANS: (i) \(11.11\ \mu\text{F}\) (ii) \(45\ \mu\text{F}\))</strong></li>
+                <li>Determine the effective capacitance obtained when two capacitors each of \(10\ \mu\text{F}\) are connected first in parallel and then in series. <br><strong>(ANS: (i) \(5\ \mu\text{F}\) (ii) \(20\ \mu\text{F}\))</strong></li>
+                <li>It is required to obtain effective capacitance of \(3\ \mu\text{F}\), there are two capacitors; the first is \(12\ \mu\text{F}\), what will be the value of the other capacitor? State the way it will be connected to the first. <br><strong>ANS: (i) It will be connected in series to the first, and its value...</strong></li>
+            </ol>
+
+            <h3 style="margin-top: 25px;">Factors affecting Capacitance of a parallel plate capacitor</h3>
+            <ol>
+                <li>The area of the plates</li>
+                <li>The dielectric material</li>
+                <li>The distance between the plates</li>
+            </ol>
+
+            <h4>Area of the plates</h4>
+            <ul>
+                <li>An increase in the area of the plate causes a decrease in potential difference between the plates, hence an increase in capacitance.</li>
+                <li><div class="formula-box">$$C \propto \frac{1}{V} \quad \text{or} \quad C \propto A$$</div></li>
+            </ul>
+
+            <h4>Dielectric Material</h4>
+            <ul>
+                <li>Dielectric material will cause the capacitance to increase or decrease depending on the material.</li>
+                <li>Example, capacitance increases if we use dielectric material such as glass or wood or polythene between the plates rather than air.</li>
+            </ul>
+
+            <h4>Distance between plates</h4>
+            <ul>
+                <li>A decrease in the distance between plates causes a decrease in potential difference between the plates, hence an increase in capacitance.</li>
+                <li><div class="formula-box">$$C \propto \frac{A}{d} \implies C = \frac{\varepsilon A}{d}$$</div> where \(\varepsilon\) is the permittivity of free space.</li>
+            </ul>
+        </div>
+
+        <div class="footer-credit">
+            <span>Author & Designer(IT): W.R.Ngonyani</span>
+            <span>Contact#: 0782469810</span>
+        </div>
+    </div>
+
+</body>
+    </html>
