@@ -71,17 +71,38 @@
             border-radius: 4px;
         }
 
-        /* Visanduku vya fomula vilivyoboreshwa visijae kupita kiasi */
+        /* Muundo maalum wa fomula kwa ajili ya kusomeka vizuri */
         .formula-box {
             background-color: #f8f9fa;
             border-left: 4px solid #4a5568;
-            padding: 10px 15px;
+            padding: 12px 15px;
             margin: 15px 0;
             font-family: "Courier New", Courier, monospace;
             font-weight: bold;
-            font-size: 15px;
+            font-size: 16px;
             color: #1a202c;
             overflow-x: auto;
+        }
+
+        /* Mtindo wa kuandika sehemu (fractions) wima kwa ustadi */
+        .frac {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 4px;
+        }
+
+        .frac > span {
+            display: block;
+        }
+
+        .frac-num {
+            border-bottom: 1.5px solid #1a202c;
+            padding-bottom: 1px;
+        }
+
+        .frac-den {
+            padding-top: 1px;
         }
 
         .footer-credit {
@@ -303,27 +324,61 @@
             <img src="capacitors-series.png" alt="Capacitors in series connection" class="note-image">
             <p>From the figure above, V<sub>T</sub> = V<sub>1</sub> + V<sub>2</sub>.</p>
             <p>Since Q = CV, making V the subject gives:</p>
-            <div class="formula-box">V = Q/C</div>
+            <div class="formula-box">
+                V = 
+                <div class="frac">
+                    <span class="frac-num">Q</span>
+                    <span class="frac-den">C</span>
+                </div>
+            </div>
             <p>Since the charge stored is the same (Q<sub>T</sub> = Q<sub>1</sub> = Q<sub>2</sub> = Q), substituting into the voltage equation gives:</p>
-            <div class="formula-box" style="line-height: 1.4;">
-                V<sub>T</sub> = Q<sub>T</sub>/C<sub>T</sub><br>
-                => Q/C<sub>T</sub> = (Q/C<sub>1</sub>) + (Q/C<sub>2</sub>)
+            <div class="formula-box" style="line-height: 1.8;">
+                V<sub>T</sub> = 
+                <div class="frac"><span class="frac-num">Q<sub>T</sub></span><span class="frac-den">C<sub>T</sub></span></div>
+                <br>
+                => 
+                <div class="frac"><span class="frac-num">Q</span><span class="frac-den">C<sub>T</sub></span></div>
+                = 
+                (<div class="frac"><span class="frac-num">Q</span><span class="frac-den">C<sub>1</sub></span></div>) 
+                + 
+                (<div class="frac"><span class="frac-num">Q</span><span class="frac-den">C<sub>2</sub></span></div>)
             </div>
             <p>Dividing through by Q gives the total capacitance formula:</p>
-            <div class="formula-box">(1/C<sub>T</sub>) = (1/C<sub>1</sub>) + (1/C<sub>2</sub>)</div>
+            <div class="formula-box">
+                <div class="frac">
+                    <span class="frac-num">1</span>
+                    <span class="frac-den">C<sub>T</sub></span>
+                </div>
+                = 
+                (<div class="frac">
+                    <span class="frac-num">1</span>
+                    <span class="frac-den">C<sub>1</sub></span>
+                </div>) 
+                + 
+                (<div class="frac">
+                    <span class="frac-num">1</span>
+                    <span class="frac-den">C<sub>2</sub></span>
+                </div>)
+            </div>
             <p>If two capacitors are in series, then their total capacitance, C<sub>T</sub> is given by:</p>
-            <div class="formula-box">C<sub>T</sub> = (C<sub>1</sub> &times; C<sub>2</sub>)/(C<sub>1</sub> + C<sub>2</sub>)</div>
+            <div class="formula-box">
+                C<sub>T</sub> = 
+                <div class="frac">
+                    <span class="frac-num">C<sub>1</sub> &times; C<sub>2</sub></span>
+                    <span class="frac-den">C<sub>1</sub> + C<sub>2</sub></span>
+                </div>
+            </div>
 
             <h4>(b) Capacitors in Parallel Connection</h4>
             <img src="capacitors-parallel.png" alt="Capacitors in parallel connection" class="note-image">
             <p>From the diagram above, total charge is the sum of individual charges: Q<sub>T</sub> = Q<sub>1</sub> + Q<sub>2</sub>.</p>
             <p>Since Q = CV, substituting this into the equation gives:</p>
-            <div class="formula-box" style="line-height: 1.4;">
+            <div class="formula-box" style="line-height: 1.5;">
                 Q<sub>T</sub> = C<sub>T</sub>V<sub>T</sub><br>
                 => C<sub>T</sub>V<sub>T</sub> = C<sub>1</sub>V<sub>1</sub> + C<sub>2</sub>V<sub>2</sub>
             </div>
             <p>Since voltage across each capacitor is the same (V<sub>T</sub> = V<sub>1</sub> = V<sub>2</sub> = V):</p>
-            <div class="formula-box" style="line-height: 1.4;">
+            <div class="formula-box" style="line-height: 1.5;">
                 C<sub>T</sub>V = C<sub>1</sub>V + C<sub>2</sub>V<br>
                 => C<sub>T</sub>V = V(C<sub>1</sub> + C<sub>2</sub>)
             </div>
@@ -347,7 +402,16 @@
             <h4>Area of the plates</h4>
             <ul>
                 <li>An increase in the area of the plate causes a decrease in potential difference between the plates, hence an increase in capacitance.</li>
-                <li><div class="formula-box">C &propto; (1/V) &nbsp;&nbsp;or&nbsp;&nbsp; C &propto; A</div></li>
+                <li>
+                    <div class="formula-box">
+                        C &propto; 
+                        <div class="frac">
+                            <span class="frac-num">1</span>
+                            <span class="frac-den">V</span>
+                        </div>
+                        &nbsp;&nbsp;or&nbsp;&nbsp; C &propto; A
+                    </div>
+                </li>
             </ul>
 
             <h4>Dielectric Material</h4>
@@ -359,15 +423,16 @@
             <h4>Distance between plates</h4>
             <ul>
                 <li>A decrease in the distance between plates causes a decrease in potential difference between the plates, hence an increase in capacitance.</li>
-                <li><div class="formula-box">C &propto; (A/d) &nbsp;=>&nbsp; C = (&epsilon;A)/d</div> where &epsilon; is the permittivity of free space.</li>
-            </ul>
-        </div>
-
-        <div class="footer-credit">
-            <span>Author & Designer(IT): W.R.Ngonyani</span>
-            <span>Contact#: 0782469810</span>
-        </div>
-    </div>
-
-</body>
-    </html>
+                <li>
+                    <div class="formula-box">
+                        C &propto; 
+                        <div class="frac">
+                            <span class="frac-num">A</span>
+                            <span class="frac-den">d</span>
+                        </div>
+                        &nbsp;=>&nbsp; C = 
+                        <div class="frac">
+                            <span class="frac-num">&epsilon;A</span>
+                            <span class="frac-den">d</span>
+                        </div>
+             
